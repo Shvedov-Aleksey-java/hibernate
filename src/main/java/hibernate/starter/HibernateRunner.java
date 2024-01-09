@@ -1,15 +1,11 @@
 package hibernate.starter;
 
-import hibernate.starter.convertor.BirthDayConvertor;
 import hibernate.starter.entity.BirthDay;
 import hibernate.starter.entity.Role;
 import hibernate.starter.entity.User;
 import hibernate.starter.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
-import org.hibernate.cfg.Configuration;
-
 
 import java.time.LocalDate;
 
