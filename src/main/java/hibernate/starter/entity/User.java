@@ -18,6 +18,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class User implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
+    @SequenceGenerator(name = "user_gen", sequenceName = "user_id_seq", allocationSize = 1)
+    private Integer id;
     private String username;
     @Embedded
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
