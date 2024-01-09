@@ -1,6 +1,7 @@
 package hibernate.starter;
 
 import hibernate.starter.entity.BirthDay;
+import hibernate.starter.entity.PersonalInfo;
 import hibernate.starter.entity.Role;
 import hibernate.starter.entity.User;
 import hibernate.starter.util.HibernateUtil;
@@ -14,9 +15,13 @@ public class HibernateRunner {
         //TRANSIENT
         User user = User.builder()
                 .username("Алексей")
-                .lastname("Владамирович")
-                .firstname("Шведов")
-                .birthDate(new BirthDay(LocalDate.of(1993, 9, 1)))
+                .personalInfo(
+                        PersonalInfo.builder()
+                                .lastname("Владамирович")
+                                .firstname("Шведов")
+                                .birthDate(new BirthDay(LocalDate.of(1993, 9, 1)))
+                                .build()
+                )
                 .role(Role.ADMIN)
                 .build();
         //TRANSIENT
@@ -32,7 +37,7 @@ public class HibernateRunner {
                 session2.beginTransaction();
 
                 //Сначала GET потом DELETE PERSISTENT к session2 DETACHED к session1
-                session2.remove(user);
+                //session2.remove(user);
 
                 //REMOVED к session2
                 session2.getTransaction().commit();

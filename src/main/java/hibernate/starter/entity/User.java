@@ -1,13 +1,12 @@
 package hibernate.starter.entity;
 
-import hibernate.starter.convertor.BirthDayConvertor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
-import java.time.LocalDate;
 
 
 
@@ -20,10 +19,9 @@ import java.time.LocalDate;
 public class User implements Serializable {
     @Id
     private String username;
-    private String firstname;
-    private String lastname;
-    @Convert(converter = BirthDayConvertor.class)
-    private BirthDay birthDate;
+    @Embedded
+    @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
+    private PersonalInfo personalInfo;
     @Enumerated(value = EnumType.STRING)
     private Role role;
 }
