@@ -19,6 +19,18 @@ import java.util.List;
 public class HibernateRunnerTest {
 
     @Test
+    public void checkH2() {
+        @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup var session = sessionFactory.openSession();
+        session.beginTransaction();
+        Company company = Company.builder()
+                .name("yandex")
+                .build();
+        session.persist(company);
+        session.getTransaction().commit();
+    }
+
+    @Test
     public void checkManyToOne() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
