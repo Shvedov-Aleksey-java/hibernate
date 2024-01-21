@@ -1,4 +1,4 @@
-drop table if exists users, company, profile cascade;
+drop table if exists users, company, profile, chat, users_chat cascade;
 
 
 
@@ -21,7 +21,21 @@ create table if not exists users
 
 create table if not exists profile
 (
-    users_id bigint primary key references users(id),
+    id bigserial primary key,
+    users_id bigint not null unique references users(id),
     street varchar(128),
     language char(2)
-)
+);
+
+create table if not exists chat
+(
+    id bigserial primary key,
+    name varchar(64) not null unique
+);
+
+create table if not exists users_chat
+(
+    users_id bigint references users(id),
+    chat_id bigint references chat(id),
+    primary key (users_id, chat_id)
+);

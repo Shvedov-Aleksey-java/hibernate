@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -35,4 +37,14 @@ public class User implements Serializable {
     private Company company;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Profile profile;
+    @Builder.Default
+    @ManyToMany
+    @JoinTable(name = "users_chat",
+    joinColumns = @JoinColumn(name = "users_id"),
+    inverseJoinColumns = @JoinColumn(name = "chat_id"))
+    private List<Chat> chats = new ArrayList<>();
+    public void addChat(Chat chat) {
+        chats.add(chat);
+        chat.getUsers().add(this);
+    }
 }

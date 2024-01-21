@@ -6,6 +6,7 @@ import lombok.Cleanup;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * анатацыя @Cleanup принадлежит ламбуку и заменяет try with resources
@@ -15,6 +16,23 @@ import java.time.LocalDate;
  * компания
  */
 public class HibernateRunnerTest {
+
+    @Test
+    public void checkManyToMany() {
+        @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup var session = sessionFactory.openSession();
+        session.beginTransaction();
+        Chat chat = Chat.builder()
+                .name("chat")
+                .build();
+        User user = User.builder()
+                .username("Aleksey")
+                .build();
+        User user1 = session.merge(user);
+        user1.addChat(chat);
+        session.persist(chat);
+        session.getTransaction().commit();
+    }
 
     @Test
     public void checkOneToOne() {

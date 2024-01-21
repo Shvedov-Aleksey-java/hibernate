@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * анатацыя @PrimaryKeyJoinColumn в данном случае альтернатива
  * JoinColumn(name = "users_id") здесь мы мапимся на колонку из
  * итой же таблицы.
- * В данном примере ключь ссылается на таблицу юзерс
+ * В данном примере ключь автоинкрементируется такая версия более предпочтительнее
  */
 
 @Entity
@@ -21,10 +21,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Profile {
     @Id
-    @Column(name = "users_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "users_id")
     private User user;
     @Column(name = "street")
     private String street;
@@ -33,7 +33,6 @@ public class Profile {
 
     public void addUser(User user) {
         this.user = user;
-        id = user.getId();
         user.setProfile(this);
 
     }
