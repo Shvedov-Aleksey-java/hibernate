@@ -12,5 +12,7 @@
     <property name="format_sql">true</property>
     <!-- добовляем класс для сканирования-->
     <mapping class="hibernate.starter.entity.User"/>
+    <mapping class="hibernate.starter.entity.Company"/>
+    <mapping class="hibernate.starter.entity.Profile"/>
   </session-factory>
 </hibernate-configuration>
