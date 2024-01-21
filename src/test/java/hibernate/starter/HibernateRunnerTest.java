@@ -5,6 +5,7 @@ import hibernate.starter.util.HibernateUtil;
 import lombok.Cleanup;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,6 +19,29 @@ import java.util.List;
 public class HibernateRunnerTest {
 
     @Test
+    public void checkManyToOne() {
+        @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup var session = sessionFactory.openSession();
+        session.beginTransaction();
+        Chat chat = Chat.builder()
+                .name("chat")
+                .build();
+        User user = User.builder()
+                .username("Aleksey")
+                .build();
+        Chat chat1 = session.merge(chat);
+        User user1 = session.merge(user);
+        UserChat userChat = UserChat.builder()
+                .createdAt(Instant.now())
+                .createdBy("Aleksey")
+                .build();
+        userChat.setChat(chat1);
+        userChat.setUser(user1);
+        session.persist(userChat);
+        session.getTransaction().commit();
+    }
+
+    @Test
     public void checkManyToMany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
@@ -29,7 +53,7 @@ public class HibernateRunnerTest {
                 .username("Aleksey")
                 .build();
         User user1 = session.merge(user);
-        user1.addChat(chat);
+        //user1.addChat(chat);
         session.persist(chat);
         session.getTransaction().commit();
     }

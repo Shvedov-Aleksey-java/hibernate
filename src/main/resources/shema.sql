@@ -37,5 +37,6 @@ create table if not exists users_chat
 (
     users_id bigint references users(id),
     chat_id bigint references chat(id),
-    primary key (users_id, chat_id)
+    created_at timestamp not null,
+    created_by varchar(128) not null
 );

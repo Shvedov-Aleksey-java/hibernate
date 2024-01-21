@@ -37,14 +37,7 @@ public class User implements Serializable {
     private Company company;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Profile profile;
+    @OneToMany(mappedBy = "user")
     @Builder.Default
-    @ManyToMany
-    @JoinTable(name = "users_chat",
-    joinColumns = @JoinColumn(name = "users_id"),
-    inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private List<Chat> chats = new ArrayList<>();
-    public void addChat(Chat chat) {
-        chats.add(chat);
-        chat.getUsers().add(this);
-    }
+    private List<UserChat> userChats = new ArrayList<>();
 }
