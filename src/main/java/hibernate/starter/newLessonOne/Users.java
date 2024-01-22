@@ -1,5 +1,7 @@
 package hibernate.starter.newLessonOne;
 
+import hibernate.starter.newLessonOne.One.BaseEntity;
+import hibernate.starter.newLessonOne.two.NewExtendsId;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,10 +30,7 @@ import java.util.TreeSet;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Users extends NewExtendsId<Long> {
     private String name;
     private String description;
     private LocalDate createDay;
@@ -43,7 +42,7 @@ public class Users {
     private Set<Pet> pets = new TreeSet<>(Pet::compareTo);
     @Builder.Default
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-    @MapKey(name = "name")
-    private Map<String, Pet> usersMap = new HashMap<>();
+    @MapKey(name = "id")
+    private Map<Long, Pet> usersMap = new HashMap<>();
 
 }
