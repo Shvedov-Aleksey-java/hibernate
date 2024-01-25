@@ -1,6 +1,6 @@
 package hibernate.starter.collectionmap;
 
-import hibernate.starter.newLessonOne.One.AuditableEntity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

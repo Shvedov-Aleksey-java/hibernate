@@ -1,6 +1,5 @@
 package hibernate.starter.sortedAnatacions.orderby;
 
-import hibernate.starter.newLessonOne.Users;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

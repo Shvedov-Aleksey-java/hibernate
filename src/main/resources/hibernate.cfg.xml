@@ -10,11 +10,8 @@
     <property name="connection.password">pass</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
     <!-- добовляем класс для сканирования-->
-    <mapping class="hibernate.starter.entity.User"/>
-    <mapping class="hibernate.starter.entity.Company"/>
-    <mapping class="hibernate.starter.entity.Profile"/>
-    <mapping class="hibernate.starter.entity.Chat"/>
-    <mapping class="hibernate.starter.entity.UserChat"/>
+    <mapping class="hibernate.starter.hql.User"/>
   </session-factory>
 </hibernate-configuration>
