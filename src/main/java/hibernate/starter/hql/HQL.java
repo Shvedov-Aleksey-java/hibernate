@@ -16,7 +16,7 @@ import java.util.List;
  * так же можем использовать именнованные запросы: .createNamedQuery("getUser")
  * где в класса User с помощью анатации: @NamedQuery(name = "", query ="select u from User u where u.username = :name")
  * где "name" имя запроса(метода), "query" сам запрос на hql, ":name" параметр запроса.
- * так же можно использовать обычный SQL запрос с помощью метода .createNativeQuery("запрос", Name.class).
+ * так же можно использовать обычный SQL запрос с помощью метода .createNativeQuery("запрос", Name.class).executeUpdate();
  * c помощью HQL мы так же можем менять изменять структуру данных пример: UserFive
  * так же хочется добавить что параметризированные запросы мы можем использовать везде.
  */
@@ -66,10 +66,10 @@ public class HQL {
                  .setParameter("name", name)
                  .list();
 
-         var userFive = session.createQuery
+         session.createQuery
                  (
                          "update User u set username = 'HqlAndAleksey'"
-                 ).list();
+                 ).executeUpdate();
 
 
         System.out.println(userFour);
