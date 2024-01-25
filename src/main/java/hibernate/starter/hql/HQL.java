@@ -2,13 +2,10 @@ package hibernate.starter.hql;
 
 import hibernate.starter.util.HibernateUtil;
 import lombok.Cleanup;
-import org.hibernate.query.Query;
-
-import java.util.List;
 
 /**
  * знакомство с HQL
- * HQL: Это язык запросов где User это таблица которая мапица на табличку "Users",
+ * HQL: Это язык запросов где User это таблица которая мапица на табличку "User",
  * Особенность HQL что мы опририруем классами, а не таблицами.
  * Так же можем делать параметризированные запросы, параметры можно
  * задавать двумя способами: ?n где "n" номер параматра, или аналогичным способом:
@@ -28,7 +25,7 @@ public class HQL {
         session.beginTransaction();
 
 
-        User user = User.builder()
+        User user = hibernate.starter.hql.User.builder()
                 .username("Aleksey")
                 .build();
         session.merge(user);

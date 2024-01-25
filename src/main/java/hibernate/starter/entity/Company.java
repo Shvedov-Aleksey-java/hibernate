@@ -35,7 +35,7 @@ public class Company {
     private String name;
     /*
     анатацыя @Builder.Default создает дефолтную реализацыю коллекции SET
-    иначе она не создастя и также мы ставим CascadeType.ALL как и в Users
+    иначе она не создастя и также мы ставим CascadeType.ALL как и в User
     для двухсторонней связи сохранения
      */
     @Builder.Default

@@ -13,5 +13,5 @@ import lombok.*;
 @NoArgsConstructor
 public class Pet extends MappedSuperClass<Long, String> {
     @ManyToOne
-    private Users owner;
+    private User owner;
 }

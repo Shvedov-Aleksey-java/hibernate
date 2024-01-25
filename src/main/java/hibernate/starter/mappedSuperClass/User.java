@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users extends MappedSuperClass<Long, String> {
+public class User extends MappedSuperClass<Long, String> {
     @Builder.Default
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> usersMap = new ArrayList<>();
