@@ -1,6 +1,6 @@
-package hibernate.starter.newLessonOne;
+package hibernate.starter.sortedAnatacions.ordercolumn;
 
-import hibernate.starter.newLessonOne.One.AuditableEntity;
+import hibernate.starter.newLessonOne.Users;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,14 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pet extends AuditableEntity<Long> implements Comparable<Pet> {
+public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private Users owner;
-    @Override
-    public int compareTo(Pet o) {
-        return o.getGender() ? 1 : -1;
-    }
 }
