@@ -1,5 +1,4 @@
-package hibernate.starter.entity;
-
+package hibernate.starter.criteriaAPI.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,23 +6,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "chat")
 @Builder
+@Table(name = "company")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Chat {
+public class Company implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "name", unique = true, nullable = false)
     private String name;
-    @Builder.Default
-    @OneToMany(mappedBy = "chat")
-    private List<UserChat> userChats = new ArrayList<>();
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<User> user;
+
 }

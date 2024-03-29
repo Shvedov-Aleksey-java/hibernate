@@ -1,7 +1,7 @@
 package hibernate.starter.mappedSuperClass;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)

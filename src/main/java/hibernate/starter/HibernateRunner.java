@@ -30,7 +30,6 @@ public class HibernateRunner {
                         PersonalInfo.builder()
                                 .lastname("Владамирович")
                                 .firstname("Шведов")
-                                .birthDate(new BirthDay(LocalDate.of(1993, 9, 1)))
                                 .build()
                 )
                 .role(Role.ADMIN)

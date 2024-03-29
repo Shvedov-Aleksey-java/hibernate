@@ -13,5 +13,6 @@
     <property name="hibernate.hbm2ddl.auto">create</property>
     <!-- добовляем класс для сканирования-->
     <mapping class="hibernate.starter.criteriaAPI.model.User"/>
+    <mapping class="hibernate.starter.criteriaAPI.model.Company"/>
   </session-factory>
 </hibernate-configuration>

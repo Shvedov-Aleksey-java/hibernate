@@ -1,8 +1,7 @@
 package hibernate.starter.InheritanceMappingStrategies.tablePerClass;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;

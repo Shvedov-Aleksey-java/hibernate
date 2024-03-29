@@ -1,7 +1,7 @@
 package hibernate.starter.entity;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
