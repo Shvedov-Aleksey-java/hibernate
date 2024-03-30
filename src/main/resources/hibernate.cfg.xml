@@ -11,6 +11,9 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">create</property>
+    <!-- добовляем дополнительный кеш-->
+    <property name="hibernate.cache.use_second_level_cache">true</property>
+    <property name="hibernate.cache.region_prefix.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
     <!-- добовляем класс для сканирования-->
     <mapping class="hibernate.starter.criteriaAPI.model.User"/>
     <mapping class="hibernate.starter.criteriaAPI.model.Company"/>

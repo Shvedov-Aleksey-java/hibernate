@@ -1,4 +1,4 @@
-package hibernate.starter.problem_n_plus_one.entity;
+package hibernate.starter.problem_n_plus_one;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
