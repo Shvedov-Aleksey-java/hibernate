@@ -6,12 +6,16 @@ import hibernate.starter.criteriaAPI.dao.UserDao;
 import hibernate.starter.criteriaAPI.model.Company;
 import hibernate.starter.criteriaAPI.model.NameAll;
 import hibernate.starter.criteriaAPI.model.User;
+import hibernate.starter.problem_n_plus_one.entity.Chat;
+import hibernate.starter.problem_n_plus_one.entity.UserChat;
 import hibernate.starter.util.HibernateUtil;
 import lombok.Cleanup;
+import org.hibernate.graph.GraphSemantic;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class QueryDslTest {
