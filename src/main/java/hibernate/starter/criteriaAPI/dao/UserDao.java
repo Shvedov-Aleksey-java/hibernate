@@ -5,15 +5,13 @@ import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.jpa.impl.JPAQuery;
 import hibernate.starter.criteriaAPI.QPredicate;
-import hibernate.starter.criteriaAPI.model.QCompany;
-import hibernate.starter.criteriaAPI.model.QUser;
 import hibernate.starter.criteriaAPI.model.User;
 import org.hibernate.Session;
 
 import java.util.List;
 
-import static hibernate.starter.criteriaAPI.model.QCompany.*;
-import static hibernate.starter.criteriaAPI.model.QUser.*;
+import static hibernate.starter.criteriaAPI.model.QCompany.company;
+import static hibernate.starter.criteriaAPI.model.QUser.user;
 
 
 
@@ -64,7 +62,7 @@ public class UserDao {
     }
 
     /**
-     *  класс Tuple сохраняет возврощаемммые обьекты в виде свонго рода мапы
+     *  класс Tuple сохраняет возврощаемммые обьекты в виде своего рода мапы
      *  где tuple.get(size) это возврощает список обьектов из селекта
      *  a tuple.get(size).get(size) это номер возврощаемого обьекта 0 вым будет
      *  user.name, 1 вым бедет company.name
